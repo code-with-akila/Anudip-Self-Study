@@ -1,0 +1,278 @@
+1. Write a conventional Java class (Bean class) to demonstrate an employee details.
+
+Additionally, 
+print Employee details 
+Calculate incremented salary of employee
+
+Use multiple employees for this example.
+
+package demo;
+
+public class EmployeeBean 
+{
+    // Instance variables
+    private int id;
+    private String name;
+    private double salary;
+
+    
+    public EmployeeBean() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+    
+    // Constructor
+	public EmployeeBean(int id, String name, double salary) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.salary = salary;
+	}
+
+    // Getter methods
+    public int getId() 
+    {
+        return id;
+    }
+
+    public String getName() 
+    {
+        return name;
+    }
+
+    public double getSalary() 
+    {
+        return salary;
+    }
+
+    // Method to calculate incremented salary
+    double calculateIncrement(double incrementPercentage) 
+    {
+        return salary = salary + (salary * incrementPercentage / 100);
+    }
+
+    // Method to display employee details
+    public void displayDetails() 
+    {
+        System.out.println("ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Salary: " + salary);
+    }
+}
+
+//Main Method
+public class EmployeeBeanMain
+{
+    public static void main(String[] args) {
+        // Creating multiple employees
+    	EmployeeBean e1 = new EmployeeBean(1, "Akila", 50000);
+    	EmployeeBean e2 = new EmployeeBean(2, "Pradip", 60000);
+    	EmployeeBean e3 = new EmployeeBean(3, "Vinod", 45000);
+
+        // Array of employees
+    	EmployeeBean[] employees = {e1, e2, e3};
+
+        // Displaying employee details and incremented salaries
+        for (EmployeeBean emp : employees) 
+        {
+            System.out.println("\nEmployee Details:");
+            emp.displayDetails(); //Access each element in the array
+
+            // Calculate and display incremented salary
+            double incrementedSalary = emp.calculateIncrement(2); // Increment by 10%
+            System.out.println("Incremented Salary (10%): " + incrementedSalary);
+        }
+    }
+}
+
+##output
+Employee Details:
+ID: 1
+Name: Akila
+Salary: 50000.0
+Incremented Salary (10%): 55000.0
+
+Employee Details:
+ID: 2
+Name: Pradip
+Salary: 60000.0
+Incremented Salary (10%): 66000.0
+
+Employee Details:
+ID: 3
+Name: Vinod
+Salary: 45000.0
+Incremented Salary (10%): 49500.0
+
+##output
+
+Employee Details:
+ID: 1
+Name: Akila
+Salary: 50000.0
+Incremented Salary (10%): 55000.0
+
+Employee Details:
+ID: 2
+Name: Pradip
+Salary: 60000.0
+Incremented Salary (10%): 66000.0
+
+Employee Details:
+ID: 3
+Name: Vinod
+Salary: 45000.0
+Incremented Salary (10%): 49500.0
+
+
+2. Write a conventional Java class (Bean class) to demonstrate student  details.
+
+Additionally, 
+print student details 
+Calculate percentage of student with all subject marks.
+Print student result.
+
+Use multiple student for this example.
+
+package demo;
+
+public class Student 
+{    
+    private int id;
+    private String name;
+    private int[] marks;
+
+    public Student() 
+    {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+    // Constructor
+    public Student(int id, String name, int[] marks) 
+    {
+		super();
+		this.id = id;
+		this.name = name;
+		this.marks = marks;
+	}
+
+    // Getter methods
+    public int getId() 
+    {
+        return id;
+    }
+
+    public String getName() 
+    {
+        return name;
+    }
+
+    public int[] getMarks() 
+    {
+        return marks;
+    }
+    
+ // Method to calculate total marks
+    public int calculateTotal() 
+    {
+        int total = 0;
+        for (int mark : marks) 
+        {
+            total = total + mark;
+        }
+        return total;
+    }
+
+    // Method to calculate percentage
+    public double calculatePercentage() 
+    {
+        int totalMarks = calculateTotal();
+        return (double) totalMarks / marks.length;
+    }
+
+    // Method to determine result
+    public String getResult() 
+    {
+        double percentage = calculatePercentage();
+        return (percentage >= 50) ? "Pass" : "Fail";
+    }
+
+    // Method to display student details
+    public void displayDetails() 
+    {
+        System.out.println("ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Marks: ");
+        for (int i = 0; i < marks.length; i++) 
+        {
+            System.out.println("  Subject " + (i + 1) + ": " + marks[i]);
+        }
+        System.out.println("Total Marks: " + calculateTotal());
+        System.out.println("Percentage: " + calculatePercentage() + "%");
+        System.out.println("Result: " + getResult());
+    }
+}
+
+public class StudentDetails 
+{
+    public static void main(String[] args) 
+    {
+        // Creating multiple students
+        Student student1 = new Student(1, "Akila", new int[] {85, 90, 78, 88, 76});
+        Student student2 = new Student(2, "Vinod", new int[] {60, 55, 72, 65, 70});
+        Student student3 = new Student(3, "Pradeep", new int[] {45, 40, 50, 35, 30});
+        
+        // Array of students
+        Student[] students = {student1, student2, student3};
+
+        // Displaying details of all students
+        for (Student student : students) 
+        {
+            System.out.println("\nStudent Details:");
+            student.displayDetails();
+        }
+    }
+}
+
+##output
+
+Student Details:
+ID: 1
+Name: Akila
+Marks: 
+  Subject 1: 85
+  Subject 2: 90
+  Subject 3: 78
+  Subject 4: 88
+  Subject 5: 76
+Total Marks: 417
+Percentage: 83.4%
+Result: Pass
+
+Student Details:
+ID: 2
+Name: Vinod
+Marks: 
+  Subject 1: 60
+  Subject 2: 55
+  Subject 3: 72
+  Subject 4: 65
+  Subject 5: 70
+Total Marks: 322
+Percentage: 64.4%
+Result: Pass
+
+Student Details:
+ID: 3
+Name: Pradeep
+Marks: 
+  Subject 1: 45
+  Subject 2: 40
+  Subject 3: 50
+  Subject 4: 35
+  Subject 5: 30
+Total Marks: 200
+Percentage: 40.0%
+Result: Fail
+
